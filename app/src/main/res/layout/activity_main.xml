@@ -22,7 +22,6 @@
             countdownClock:digitBottomDrawable="@drawable/background_bottom"
             countdownClock:digitDividerColor="@color/transparent"
             countdownClock:digitPadding="2dp"
-            countdownClock:digitSplitterColor="@color/white"
             countdownClock:digitTextColor="@color/black"
             countdownClock:digitTextSize="24sp"
             countdownClock:digitTopDrawable="@drawable/background_top"
