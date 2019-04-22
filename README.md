@@ -4,7 +4,7 @@
 
 
 ## Preview
- <img src="imgs/preview.gif"/>
+<img src="imgs/preview.gif" width="250" height="480"/>
 
 
 FlipTimerView library for Android
