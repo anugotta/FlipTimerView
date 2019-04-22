@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FlipTimerViewLibrary</string>
+    <string name="Days">Days</string>
+    <string name="Hours">Hours</string>
+    <string name="Mins">Mins</string>
+    <string name="Secs">Secs</string>
+</resources>

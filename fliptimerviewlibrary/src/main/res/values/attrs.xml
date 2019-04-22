@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="AlignedTextView">
+        <attr name="alignment" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="CountDownClock">
+        <attr name="resetSymbol" format="string"/>
+        <attr name="digitDividerColor" format="color"/>
+        <attr name="digitTopDrawable" format="integer"/>
+        <attr name="digitBottomDrawable" format="integer"/>
+        <attr name="digitSplitterColor" format="color"/>
+        <attr name="digitTextColor" format="color"/>
+        <attr name="halfDigitHeight" format="dimension"/>
+        <attr name="digitWidth" format="dimension"/>
+        <attr name="digitTextSize" format="dimension"/>
+        <attr name="digitPadding" format="dimension"/>
+        <attr name="splitterPadding" format="dimension"/>
+        <attr name="animationDuration" format="integer"/>
+        <attr name="almostFinishedCallbackTimeInSeconds" format="integer"/>
+        <attr name="countdownTickInterval" format="integer"/>
+    </declare-styleable>
+
+
+
+</resources>

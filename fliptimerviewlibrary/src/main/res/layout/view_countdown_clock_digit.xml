@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:alignedtextview="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <FrameLayout
+            android:id="@+id/backUpper"
+            android:layout_width="31dp"
+            android:layout_height="17dp">
+
+            <com.asp.fliptimerviewlibrary.AlignedTextView
+                android:id="@+id/backUpperText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:textColor="@color/black"
+                android:text="8"
+                android:textSize="25sp"
+                alignedtextview:alignment="2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/backLower"
+            android:layout_width="31dp"
+            android:layout_height="17dp">
+
+            <com.asp.fliptimerviewlibrary.AlignedTextView
+                android:id="@+id/backLowerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="8"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                alignedtextview:alignment="1" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <FrameLayout
+            android:id="@+id/frontUpper"
+            android:layout_width="31dp"
+            android:layout_height="17dp">
+
+            <com.asp.fliptimerviewlibrary.AlignedTextView
+                android:id="@+id/frontUpperText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="8"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                alignedtextview:alignment="2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/frontLower"
+            android:layout_width="31dp"
+            android:layout_height="17dp">
+
+            <com.asp.fliptimerviewlibrary.AlignedTextView
+                android:id="@+id/frontLowerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/roboto_bold"
+                android:includeFontPadding="false"
+                android:lineSpacingExtra="0dp"
+                android:text="8"
+                android:textColor="@color/black"
+                android:textSize="25sp"
+                alignedtextview:alignment="1"/>
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/digitDivider"
+        android:layout_width="3dp"
+        android:layout_height="2px"
+        android:layout_gravity="center_vertical"
+        android:background="#000000"/>
+</FrameLayout>
