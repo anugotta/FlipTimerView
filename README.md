@@ -1,6 +1,7 @@
 # FlipTimerView
 [![](https://jitpack.io/v/anugotta/FlipTimerView.svg)](https://jitpack.io/#anugotta/FlipTimerView)
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)]()
+[![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-FlipTimerView-green.svg?style=flat )]( https://android-arsenal.com/details/1/7634 )
 
 
 ## Preview
