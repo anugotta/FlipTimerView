@@ -78,6 +78,9 @@ If you are interested to contribute, feel free to send pull requests or issues.
 ## Questions?
 Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-@as_pillai-blue.svg?style=flat)](https://twitter.com/as_pillai)
 
+## Acknowledgements:
+This library is based on [Fjessin2](https://github.com/Fjessin2)'s library [flipperclock](https://github.com/Fjessin2/flipperclock).
+
 ## License
 
     MIT License
