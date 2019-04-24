@@ -1,6 +1,7 @@
 # FlipTimerView
 [![](https://jitpack.io/v/anugotta/FlipTimerView.svg)](https://jitpack.io/#anugotta/FlipTimerView)
 [![License](http://img.shields.io/badge/license-MIT-green.svg?style=flat)]()
+[![API](https://img.shields.io/badge/API-16%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=16)
 [![Android Arsenal]( https://img.shields.io/badge/Android%20Arsenal-FlipTimerView-green.svg?style=flat )]( https://android-arsenal.com/details/1/7634 )
 
 
@@ -73,6 +74,12 @@ Add the CountDownClock in your layout
 If you are interested to contribute, feel free to send pull requests or issues.
 
 **Note:** All your pull requests should be written in kotlin
+
+## Questions?
+Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-@as_pillai-blue.svg?style=flat)](https://twitter.com/as_pillai)
+
+## Acknowledgements:
+- This library is based on [Fjessin2](https://github.com/Fjessin2)'s library [flipperclock](https://github.com/Fjessin2/flipperclock).
 
 ## License
 
