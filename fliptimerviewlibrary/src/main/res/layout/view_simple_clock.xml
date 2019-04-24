@@ -22,6 +22,7 @@
         <com.asp.fliptimerviewlibrary.CountDownDigit
             android:id="@+id/secondDigitDays"
             android:layout_toEndOf="@+id/firstDigitDays"
+            android:layout_toRightOf="@+id/firstDigitDays"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clipChildren="false"
@@ -42,9 +43,9 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginStart="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            android:layout_marginStart="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginLeft="4dp">
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
         android:id="@+id/firstDigitHours"
@@ -54,12 +55,12 @@
         android:clipToPadding="false"/>
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
-        android:id="@+id/secondDigitHours"
-        android:layout_width="wrap_content"
-        android:layout_toEndOf="@+id/firstDigitHours"
-        android:layout_height="wrap_content"
-        android:clipChildren="false"
-        android:clipToPadding="false"/>
+                android:id="@+id/secondDigitHours"
+                android:layout_width="wrap_content"
+                android:layout_toEndOf="@+id/firstDigitHours"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false" android:layout_toRightOf="@+id/firstDigitHours"/>
 
         <TextView
             android:layout_below="@+id/firstDigitHours"
@@ -76,9 +77,9 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginStart="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            android:layout_marginStart="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginLeft="4dp">
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
         android:id="@+id/firstDigitMinute"
@@ -88,12 +89,12 @@
         android:clipToPadding="false"/>
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
-        android:id="@+id/secondDigitMinute"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/firstDigitMinute"
-        android:clipChildren="false"
-        android:clipToPadding="false"/>
+                android:id="@+id/secondDigitMinute"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/firstDigitMinute"
+                android:clipChildren="false"
+                android:clipToPadding="false" android:layout_toRightOf="@+id/firstDigitMinute"/>
 
         <TextView
             android:layout_below="@+id/firstDigitMinute"
@@ -110,9 +111,9 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:layout_marginStart="4dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+            android:layout_marginStart="4dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:layout_marginLeft="4dp">
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
         android:id="@+id/firstDigitSecond"
@@ -122,12 +123,12 @@
         android:clipToPadding="false"/>
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
-        android:id="@+id/secondDigitSecond"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/firstDigitSecond"
-        android:clipChildren="false"
-        android:clipToPadding="false"/>
+                android:id="@+id/secondDigitSecond"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@+id/firstDigitSecond"
+                android:clipChildren="false"
+                android:clipToPadding="false" android:layout_toRightOf="@+id/firstDigitSecond"/>
 
 
         <TextView

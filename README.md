@@ -38,19 +38,19 @@ Add the CountDownClock in your layout
             android:layout_gravity="center"
             android:clipChildren="false"
             android:clipToPadding="false"
-            countdownClock:almostFinishedCallbackTimeInSeconds="5"
-            countdownClock:animationDuration="850"
-            countdownClock:countdownTickInterval="1000"
-            countdownClock:digitBottomDrawable="@drawable/background_bottom"
-            countdownClock:digitDividerColor="@color/transparent"
-            countdownClock:digitPadding="2dp"
-            countdownClock:digitTextColor="@color/black"
-            countdownClock:digitTextSize="24sp"
-            countdownClock:digitTopDrawable="@drawable/background_top"
-            countdownClock:digitWidth="28dp"
-            countdownClock:halfDigitHeight="22dp"
-            countdownClock:resetSymbol="8"
-            countdownClock:splitterPadding="0dp"
+            flipTimer:almostFinishedCallbackTimeInSeconds="5"
+            flipTimer:animationDuration="850"
+            flipTimer:countdownTickInterval="1000"
+            flipTimer:digitBottomDrawable="@drawable/background_bottom"
+            flipTimer:digitDividerColor="@color/transparent"
+            flipTimer:digitPadding="2dp"
+            flipTimer:digitTextColor="@color/black"
+            flipTimer:digitTextSize="24sp"
+            flipTimer:digitTopDrawable="@drawable/background_top"
+            flipTimer:digitWidth="28dp"
+            flipTimer:halfDigitHeight="22dp"
+            flipTimer:resetSymbol="8"
+            flipTimer:splitterPadding="0dp"
     />
 ```
 
@@ -77,9 +77,6 @@ If you are interested to contribute, feel free to send pull requests or issues.
 
 ## Questions?
 Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-@as_pillai-blue.svg?style=flat)](https://twitter.com/as_pillai)
-
-## Acknowledgements:
-This library is based on [Fjessin2](https://github.com/Fjessin2)'s library [flipperclock](https://github.com/Fjessin2/flipperclock).
 
 ## License
 

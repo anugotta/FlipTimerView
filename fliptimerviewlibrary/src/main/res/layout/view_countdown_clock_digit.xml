@@ -28,7 +28,7 @@
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
                 android:textColor="@color/black"
-                android:text="8"
+                android:text="@string/_8"
                 android:textSize="25sp"
                 alignedtextview:alignment="2" />
         </FrameLayout>
@@ -46,7 +46,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:text="8"
+                android:text="@string/_8"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 alignedtextview:alignment="1" />
@@ -72,7 +72,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:text="8"
+                android:text="@string/_8"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 alignedtextview:alignment="2" />
@@ -91,7 +91,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:text="8"
+                android:text="@string/_8"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 alignedtextview:alignment="1"/>
@@ -101,7 +101,7 @@
     <View
         android:id="@+id/digitDivider"
         android:layout_width="3dp"
-        android:layout_height="2px"
+        android:layout_height="1dp"
         android:layout_gravity="center_vertical"
         android:background="#000000"/>
 </FrameLayout>
