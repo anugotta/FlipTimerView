@@ -12,6 +12,7 @@ import kotlinx.android.synthetic.main.view_countdown_clock_digit.view.*
 import kotlinx.android.synthetic.main.view_simple_clock.view.*
 import java.util.concurrent.TimeUnit
 
+
 class CountDownClock : LinearLayout {
     private var countDownTimer: CountDownTimer? = null
     private var countdownListener: CountdownCallBack? = null
@@ -77,11 +78,14 @@ class CountDownClock : LinearLayout {
     // Public methods
     ////////////////
 
+    private var milliLeft: Long = 0
+
     fun startCountDown(timeToNextEvent: Long) {
         countDownTimer?.cancel()
         var hasCalledAlmostFinished = false
         countDownTimer = object : CountDownTimer(timeToNextEvent, countdownTickInterval.toLong()) {
             override fun onTick(millisUntilFinished: Long) {
+                milliLeft = millisUntilFinished
                 if (millisUntilFinished / 1000 <= almostFinishedCallbackTimeInSeconds && !hasCalledAlmostFinished) {
                     hasCalledAlmostFinished = true
                     countdownListener?.countdownAboutToFinish()
@@ -465,12 +469,23 @@ class CountDownClock : LinearLayout {
     // Listeners
     ////////////////
 
-    public fun setCountdownListener(countdownListener: CountdownCallBack) {
+     fun setCountdownListener(countdownListener: CountdownCallBack) {
         this.countdownListener = countdownListener
     }
 
-    public interface CountdownCallBack {
+    interface CountdownCallBack {
         fun countdownAboutToFinish()
         fun countdownFinished()
     }
+
+
+    fun pauseCountDownTimer() {
+        countDownTimer?.cancel()
+    }
+
+     fun resumeCountDownTimer() {
+        startCountDown(milliLeft)
+    }
+
+
 }

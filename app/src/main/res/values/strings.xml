@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">FlipTimerView</string>
+    <string name="pause_timer">Pause Timer</string>
+    <string name="resume_timer">Resume Timer</string>
 </resources>
