@@ -1,6 +1,7 @@
 package com.asp.fliptimerviewlibrary
 
 import android.content.Context
+import android.graphics.Typeface
 import android.util.AttributeSet
 import android.view.animation.AccelerateInterpolator
 import android.view.animation.DecelerateInterpolator
@@ -66,5 +67,15 @@ class CountDownDigit : FrameLayout {
 
     private fun getHalfOfAnimationDuration(): Long {
         return animationDuration / 2
+    }
+
+
+    fun setTypeFace(typeFace: Typeface){
+
+        frontUpperText.typeface = typeFace
+        frontLowerText.typeface = typeFace
+        backUpperText.typeface = typeFace
+        backLowerText.typeface = typeFace
+
     }
 }

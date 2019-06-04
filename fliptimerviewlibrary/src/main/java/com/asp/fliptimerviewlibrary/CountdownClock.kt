@@ -1,6 +1,7 @@
 package com.asp.fliptimerviewlibrary
 
 import android.content.Context
+import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.CountDownTimer
 import android.support.v4.content.ContextCompat
@@ -485,6 +486,27 @@ class CountDownClock : LinearLayout {
 
      fun resumeCountDownTimer() {
         startCountDown(milliLeft)
+    }
+
+
+    fun setCustomTypeface(typeface : Typeface){
+        firstDigitDays.setTypeFace(typeface)
+        firstDigitDays.setTypeFace(typeface)
+        secondDigitDays.setTypeFace(typeface)
+        secondDigitDays.setTypeFace(typeface)
+        firstDigitHours.setTypeFace(typeface)
+        firstDigitHours.setTypeFace(typeface)
+        secondDigitHours.setTypeFace(typeface)
+        secondDigitHours.setTypeFace(typeface)
+        firstDigitMinute.setTypeFace(typeface)
+        firstDigitMinute.setTypeFace(typeface)
+        secondDigitMinute.setTypeFace(typeface)
+        secondDigitMinute.setTypeFace(typeface)
+        firstDigitSecond.setTypeFace(typeface)
+        firstDigitSecond.setTypeFace(typeface)
+        secondDigitSecond.setTypeFace(typeface)
+        secondDigitSecond.setTypeFace(typeface)
+
     }
 
 
