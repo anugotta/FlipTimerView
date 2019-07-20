@@ -27,6 +27,10 @@
             <enum name="second" value="3"/>
         </attr>
         <attr name="labelAppearance" format="reference"/>
+        <attr name="daysLabel" format="string"/>
+        <attr name="hoursLabel" format="string"/>
+        <attr name="minutesLabel" format="string"/>
+        <attr name="secondsLabel" format="string"/>
     </declare-styleable>
 
 

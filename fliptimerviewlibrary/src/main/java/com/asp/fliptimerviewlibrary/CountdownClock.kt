@@ -80,6 +80,13 @@ class CountDownClock : LinearLayout {
             if (labelAppearance != null && labelAppearance > 0)
                 setLabelAppearance(labelAppearance)
 
+            setLabels(
+                typedArray?.getString(R.styleable.CountDownClock_daysLabel),
+                typedArray?.getString(R.styleable.CountDownClock_hoursLabel),
+                typedArray?.getString(R.styleable.CountDownClock_minutesLabel),
+                typedArray?.getString(R.styleable.CountDownClock_secondsLabel)
+            )
+
             invalidate()
             typedArray?.recycle()
         }
@@ -547,6 +554,13 @@ class CountDownClock : LinearLayout {
         arrayOf(labelDays, labelHours, labelMinutes, labelSeconds).forEach {
             TextViewCompat.setTextAppearance(it, resId)
         }
+    }
+
+    fun setLabels(daysLabel: String?, hoursLabel: String?, minutesLabel: String?, secondsLabel: String?) {
+        labelDays.text = daysLabel
+        labelHours.text = hoursLabel
+        labelMinutes.text = minutesLabel
+        labelSeconds.text = secondsLabel
     }
 
 }
