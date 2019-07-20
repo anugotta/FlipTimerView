@@ -49,6 +49,7 @@ Add the CountDownClock in your layout
             flipTimer:digitTopDrawable="@drawable/background_top"
             flipTimer:digitWidth="28dp"
             flipTimer:halfDigitHeight="22dp"
+            flipTimer:greatestVisibleDigit="day"
             flipTimer:resetSymbol="8"
             flipTimer:splitterPadding="0dp"
     />

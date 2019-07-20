@@ -11,6 +11,7 @@ import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_countdown_clock_digit.view.*
 import kotlinx.android.synthetic.main.view_simple_clock.view.*
+import java.lang.IllegalArgumentException
 import java.util.concurrent.TimeUnit
 
 
@@ -69,6 +70,9 @@ class CountDownClock : LinearLayout {
 
             val countdownTickInterval = typedArray?.getInt(R.styleable.CountDownClock_countdownTickInterval, 1000)
             this.countdownTickInterval = countdownTickInterval ?: 1000
+
+            val greatestVisibleDigit = typedArray?.getInteger(R.styleable.CountDownClock_greatestVisibleDigit, 0)
+            setGreatestVisibleDigit(greatestVisibleDigit ?: 0)
 
             invalidate()
             typedArray?.recycle()
@@ -509,5 +513,28 @@ class CountDownClock : LinearLayout {
 
     }
 
+    fun setGreatestVisibleDigit(greatestVisibleDigit: Int) {
+        when (greatestVisibleDigit) {
+            0 -> {
+                // do nothing, all digits should be visible
+            }
+            1 -> {
+                // days must be invisible
+                layoutDays.visibility = View.GONE
+            }
+            2 -> {
+                // days and hours must be invisible
+                layoutDays.visibility = View.GONE
+                layoutHours.visibility = View.GONE
+            }
+            3 -> {
+                // days, hours and minutes must be invisible
+                layoutDays.visibility = View.GONE
+                layoutHours.visibility = View.GONE
+                layoutMinutes.visibility = View.GONE
+            }
+            else -> throw IllegalArgumentException("greatestVisibleDigit should be one of {0,1,2,3} but is: $greatestVisibleDigit")
+        }
+    }
 
 }

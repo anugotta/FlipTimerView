@@ -20,8 +20,13 @@
         <attr name="animationDuration" format="integer"/>
         <attr name="almostFinishedCallbackTimeInSeconds" format="integer"/>
         <attr name="countdownTickInterval" format="integer"/>
+        <attr name="greatestVisibleDigit" format="enum">
+            <enum name="day" value="0"/>
+            <enum name="hour" value="1"/>
+            <enum name="minute" value="2"/>
+            <enum name="second" value="3"/>
+        </attr>
     </declare-styleable>
-
 
 
 </resources>

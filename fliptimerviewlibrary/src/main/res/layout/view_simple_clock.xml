@@ -10,6 +10,7 @@
 
     <RelativeLayout
         android:layout_width="wrap_content"
+        android:id="@+id/layoutDays"
         android:layout_height="wrap_content">
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
@@ -44,6 +45,7 @@
 
     <RelativeLayout
             android:layout_marginStart="4dp"
+            android:id="@+id/layoutHours"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginLeft="4dp">
 
@@ -78,6 +80,7 @@
 
     <RelativeLayout
             android:layout_marginStart="4dp"
+            android:id="@+id/layoutMinutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" android:layout_marginLeft="4dp">
 
@@ -113,6 +116,7 @@
     <RelativeLayout
             android:layout_marginStart="4dp"
             android:layout_width="wrap_content"
+            android:id="@+id/layoutSeconds"
             android:layout_height="wrap_content" android:layout_marginLeft="4dp">
 
         <com.asp.fliptimerviewlibrary.CountDownDigit
