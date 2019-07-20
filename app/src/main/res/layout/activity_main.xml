@@ -29,6 +29,7 @@
             flipTimer:halfDigitHeight="22dp"
             flipTimer:greatestVisibleDigit="day"
             flipTimer:resetSymbol="8"
+            flipTimer:labelAppearance="@style/LabelStyle"
             flipTimer:splitterPadding="0dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"

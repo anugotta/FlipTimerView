@@ -26,6 +26,7 @@
             <enum name="minute" value="2"/>
             <enum name="second" value="3"/>
         </attr>
+        <attr name="labelAppearance" format="reference"/>
     </declare-styleable>
 
 

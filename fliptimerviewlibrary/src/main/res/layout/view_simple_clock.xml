@@ -35,6 +35,7 @@
             android:layout_centerInParent="true"
             android:textSize="@dimen/text_10"
             android:layout_width="wrap_content"
+            android:id="@+id/labelDays"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
@@ -66,7 +67,7 @@
 
         <TextView
             android:layout_below="@+id/firstDigitHours"
-            android:id="@+id/ddd"
+            android:id="@+id/labelHours"
             android:layout_width="wrap_content"
             android:textSize="@dimen/text_10"
             android:layout_height="wrap_content"
@@ -101,7 +102,7 @@
 
         <TextView
             android:layout_below="@+id/firstDigitMinute"
-            android:id="@+id/ds"
+            android:id="@+id/labelMinutes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -137,7 +138,7 @@
 
         <TextView
             android:layout_below="@+id/firstDigitSecond"
-            android:id="@+id/sssk"
+            android:id="@+id/labelSeconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

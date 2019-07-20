@@ -4,7 +4,9 @@ import android.content.Context
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.CountDownTimer
+import android.support.annotation.StyleRes
 import android.support.v4.content.ContextCompat
+import android.support.v4.widget.TextViewCompat
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
@@ -73,6 +75,10 @@ class CountDownClock : LinearLayout {
 
             val greatestVisibleDigit = typedArray?.getInteger(R.styleable.CountDownClock_greatestVisibleDigit, 0)
             setGreatestVisibleDigit(greatestVisibleDigit ?: 0)
+
+            val labelAppearance = typedArray?.getResourceId(R.styleable.CountDownClock_labelAppearance, -1)
+            if (labelAppearance != null && labelAppearance > 0)
+                setLabelAppearance(labelAppearance)
 
             invalidate()
             typedArray?.recycle()
@@ -534,6 +540,12 @@ class CountDownClock : LinearLayout {
                 layoutMinutes.visibility = View.GONE
             }
             else -> throw IllegalArgumentException("greatestVisibleDigit should be one of {0,1,2,3} but is: $greatestVisibleDigit")
+        }
+    }
+
+    fun setLabelAppearance(@StyleRes resId: Int) {
+        arrayOf(labelDays, labelHours, labelMinutes, labelSeconds).forEach {
+            TextViewCompat.setTextAppearance(it, resId)
         }
     }
 
