@@ -10,7 +10,8 @@ import android.widget.TextView
 
 class AlignedTextView : TextView {
     private var alignment = ProperTextAlignment.TOP
-    private val textRect = Rect()
+    private val clipBoundsRect = Rect()
+    private val textBoundsRect = Rect()
 
     constructor(context: Context?) : this(context, null)
     constructor(context: Context?, attrs: AttributeSet?) : this(context, attrs, 0)
@@ -32,19 +33,14 @@ class AlignedTextView : TextView {
 
     override fun onDraw(canvas: Canvas?) {
         canvas?.let {
-            canvas.getClipBounds(textRect)
-            val cHeight = textRect.height()
-            paint.getTextBounds(this.text.toString(), 0, this.text.length, textRect)
-            val bottom = textRect.bottom;
-            textRect.offset(-textRect.left, -textRect.top)
+            canvas.getClipBounds(clipBoundsRect)
+            paint.getTextBounds(this.text.toString(), 0, this.text.length, textBoundsRect)
             paint.textAlign = Paint.Align.CENTER
-            var drawY = 0f
-            if (alignment == ProperTextAlignment.TOP) {
-                drawY = (textRect.bottom - bottom).toFloat() - ((textRect.bottom - textRect.top) / 2)
-            } else if (alignment == ProperTextAlignment.BOTTOM) {
-                drawY = top + cHeight.toFloat() + ((textRect.bottom - textRect.top) / 2)
+            val drawY = when (alignment) {
+                ProperTextAlignment.TOP -> clipBoundsRect.top.toFloat() + textBoundsRect.height() / 2
+                ProperTextAlignment.BOTTOM -> clipBoundsRect.bottom.toFloat() + textBoundsRect.height() / 2
             }
-            val drawX = (canvas.width / 2).toFloat()
+            val drawX = width / 2F
             paint.color = this.currentTextColor
             canvas.drawText(this.text.toString(), drawX, drawY, paint)
         }
