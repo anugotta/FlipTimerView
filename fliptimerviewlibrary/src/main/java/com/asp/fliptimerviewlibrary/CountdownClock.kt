@@ -297,12 +297,12 @@ class CountDownClock : LinearLayout {
     private fun setDigitPadding(digitPadding: Int) {
 
         firstDigitDays.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        secondDigitDays.setPadding(digitPadding, digitPadding, digitPadding , digitPadding)
+        secondDigitDays.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         firstDigitHours.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        secondDigitHours.setPadding(digitPadding, digitPadding, digitPadding , digitPadding)
+        secondDigitHours.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
 
         firstDigitMinute.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        secondDigitMinute.setPadding(digitPadding, digitPadding, digitPadding , digitPadding)
+        secondDigitMinute.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         firstDigitSecond.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         secondDigitSecond.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
     }
@@ -392,6 +392,9 @@ class CountDownClock : LinearLayout {
         firstDigitSecond.backLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         secondDigitSecond.frontLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         secondDigitSecond.backLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        tvColon1.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        tvColon2.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        tvColon3.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
     }
 
     private fun setHalfDigitHeightAndDigitWidth(halfDigitHeight: Int, digitWidth: Int) {
@@ -487,7 +490,7 @@ class CountDownClock : LinearLayout {
     // Listeners
     ////////////////
 
-     fun setCountdownListener(countdownListener: CountdownCallBack) {
+    fun setCountdownListener(countdownListener: CountdownCallBack) {
         this.countdownListener = countdownListener
     }
 
@@ -501,12 +504,12 @@ class CountDownClock : LinearLayout {
         countDownTimer?.cancel()
     }
 
-     fun resumeCountDownTimer() {
+    fun resumeCountDownTimer() {
         startCountDown(milliLeft)
     }
 
 
-    fun setCustomTypeface(typeface : Typeface){
+    fun setCustomTypeface(typeface: Typeface) {
         firstDigitDays.setTypeFace(typeface)
         firstDigitDays.setTypeFace(typeface)
         secondDigitDays.setTypeFace(typeface)
@@ -534,17 +537,23 @@ class CountDownClock : LinearLayout {
             1 -> {
                 // days must be invisible
                 layoutDays.visibility = View.GONE
+                tvColon1.visibility = View.GONE
             }
             2 -> {
                 // days and hours must be invisible
                 layoutDays.visibility = View.GONE
                 layoutHours.visibility = View.GONE
+                tvColon1.visibility = View.GONE
+                tvColon2.visibility = View.GONE
             }
             3 -> {
                 // days, hours and minutes must be invisible
                 layoutDays.visibility = View.GONE
                 layoutHours.visibility = View.GONE
                 layoutMinutes.visibility = View.GONE
+                tvColon1.visibility = View.GONE
+                tvColon2.visibility = View.GONE
+                tvColon3.visibility = View.GONE
             }
             else -> throw IllegalArgumentException("greatestVisibleDigit should be one of {0,1,2,3} but is: $greatestVisibleDigit")
         }
