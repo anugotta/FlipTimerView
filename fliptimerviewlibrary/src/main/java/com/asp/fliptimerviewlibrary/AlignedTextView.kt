@@ -6,9 +6,9 @@ import android.graphics.Paint
 import android.graphics.Rect
 import android.util.AttributeSet
 import android.util.Log
-import android.widget.TextView
+import android.support.v7.widget.AppCompatTextView
 
-class AlignedTextView : TextView {
+class AlignedTextView : AppCompatTextView {
     private var alignment = ProperTextAlignment.TOP
     private val clipBoundsRect = Rect()
     private val textBoundsRect = Rect()
