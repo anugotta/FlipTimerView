@@ -27,7 +27,7 @@
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
                 android:textColor="@color/black"
-                android:text="@string/_8"
+                android:text="@string/_"
                 android:textSize="25sp"
                 alignedtextview:alignment="2" />
         </FrameLayout>
@@ -44,7 +44,7 @@
                 android:layout_gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:text="@string/_8"
+                android:text="@string/_"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 alignedtextview:alignment="1" />
@@ -69,7 +69,7 @@
                 android:layout_gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:text="@string/_8"
+                android:text="@string/_"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 alignedtextview:alignment="2" />
@@ -87,7 +87,7 @@
                 android:layout_gravity="center_horizontal"
                 android:includeFontPadding="false"
                 android:lineSpacingExtra="0dp"
-                android:text="@string/_8"
+                android:text="@string/_"
                 android:textColor="@color/black"
                 android:textSize="25sp"
                 alignedtextview:alignment="1"/>
