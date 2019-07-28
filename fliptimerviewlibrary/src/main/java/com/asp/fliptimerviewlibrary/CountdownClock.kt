@@ -13,7 +13,6 @@ import android.view.View
 import android.widget.LinearLayout
 import kotlinx.android.synthetic.main.view_countdown_clock_digit.view.*
 import kotlinx.android.synthetic.main.view_simple_clock.view.*
-import java.lang.IllegalArgumentException
 import java.util.concurrent.TimeUnit
 
 
@@ -109,6 +108,7 @@ class CountDownClock : LinearLayout {
                     countdownListener?.countdownAboutToFinish()
                 }
                 setCountDownTime(millisUntilFinished)
+                countdownListener?.countdownTick(millisUntilFinished)
             }
 
             override fun onFinish() {
@@ -496,6 +496,7 @@ class CountDownClock : LinearLayout {
 
     interface CountdownCallBack {
         fun countdownAboutToFinish()
+        fun countdownTick(millisUntilFinished: Long)
         fun countdownFinished()
     }
 

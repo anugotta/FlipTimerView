@@ -2,7 +2,6 @@ package com.asp.fliptimer
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
 import android.widget.Toast
 import com.asp.fliptimerviewlibrary.CountDownClock
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,6 +21,10 @@ class MainActivity : Activity() {
                 //TODO Add your code here
             }
 
+            override fun countdownTick(millisUntilFinished: Long) {
+                //TODO Add your code here
+            }
+
             override fun countdownFinished() {
                 Toast.makeText(this@MainActivity, "Finished", Toast.LENGTH_SHORT).show()
                 timerProgramCountdown.resetCountdownTimer()
@@ -33,11 +36,11 @@ class MainActivity : Activity() {
 
         btnPause.setOnClickListener {
 
-            if(isRunning){
+            if (isRunning) {
                 isRunning = false
                 timerProgramCountdown.pauseCountDownTimer()
                 btnPause.text = getString(R.string.resume_timer)
-            }else{
+            } else {
                 isRunning = true
                 timerProgramCountdown.resumeCountDownTimer()
                 btnPause.text = getString(R.string.pause_timer)
