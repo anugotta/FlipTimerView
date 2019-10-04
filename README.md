@@ -71,7 +71,7 @@ Add the CountDownClock in your layout
 
 ## Contribution
 
-If you are interested to contribute, feel free to send pull requests or issues.
+If you are interested to contribute, feel free to send pull requests (to development branch) or issues.
 
 **Note:** All your pull requests should be written in kotlin
 
