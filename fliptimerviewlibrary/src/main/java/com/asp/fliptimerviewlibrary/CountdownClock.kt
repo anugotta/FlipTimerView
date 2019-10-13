@@ -87,7 +87,7 @@ class CountDownClock : LinearLayout {
         countDownTimer = object : CountDownTimer(timeToNextEvent, countdownTickInterval.toLong()) {
             override fun onTick(millisUntilFinished: Long) {
                 milliLeft = millisUntilFinished
-                if (millisUntilFinished / 1000 <= almostFinishedCallbackTimeInSeconds && !hasCalledAlmostFinished) {
+                if (millisUntilFinished + 1000 <= almostFinishedCallbackTimeInSeconds && !hasCalledAlmostFinished) {
                     hasCalledAlmostFinished = true
                     countdownListener?.countdownAboutToFinish()
                 }
@@ -506,7 +506,28 @@ class CountDownClock : LinearLayout {
         firstDigitSecond.setTypeFace(typeface)
         secondDigitSecond.setTypeFace(typeface)
         secondDigitSecond.setTypeFace(typeface)
+    }
 
+
+    fun setHourAndTime(typeface : Typeface){
+        firstDigitDays.visibility = View.GONE
+        firstDigitDays.visibility = View.GONE
+        firstDigitDaysText.visibility = View.GONE
+        secondDigitDays.visibility = View.GONE
+        secondDigitDays.visibility = View.GONE
+        firstDigitHours.setTypeFace(typeface)
+        firstDigitHours.setTypeFace(typeface)
+        secondDigitHours.setTypeFace(typeface)
+        secondDigitHours.setTypeFace(typeface)
+        firstDigitMinute.setTypeFace(typeface)
+        firstDigitMinute.setTypeFace(typeface)
+        secondDigitMinute.setTypeFace(typeface)
+        secondDigitMinute.setTypeFace(typeface)
+        firstDigitSecond.visibility = View.GONE
+        firstDigitSecond.visibility = View.GONE
+        secondDigitSecond.visibility = View.GONE
+        secondDigitSecond.visibility = View.GONE
+        sssk.visibility = View.GONE
     }
 
 
