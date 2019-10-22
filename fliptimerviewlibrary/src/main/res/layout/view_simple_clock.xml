@@ -31,6 +31,7 @@
 
         <TextView
             android:layout_below="@+id/firstDigitDays"
+            android:id="@+id/firstDigitDaysText"
             android:layout_centerInParent="true"
             android:textSize="@dimen/text_10"
             android:layout_width="wrap_content"

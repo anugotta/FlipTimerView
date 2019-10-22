@@ -18,6 +18,7 @@ class MainActivity : Activity() {
 
         val typeface = ResourcesCompat.getFont(this, R.font.roboto_bold)
         timerProgramCountdown.setCustomTypeface(typeface!!)
+
         timerProgramCountdown.startCountDown(99999999)
         timerProgramCountdown.setCountdownListener(object : CountDownClock.CountdownCallBack {
             override fun countdownAboutToFinish() {
