@@ -69,6 +69,17 @@ Add the CountDownClock in your layout
         })
 ```
 
+
+
+
+
+## Designed by:
+**GadgetCheck:**
+https://github.com/GadgetCheck
+
+
+
+
 ## Contribution
 
 If you are interested to contribute, feel free to send pull requests (to development branch) or issues.
@@ -77,6 +88,7 @@ If you are interested to contribute, feel free to send pull requests (to develop
 
 ## Questions?
 Hit me on twitter [![Twitter](https://img.shields.io/badge/Twitter-@as_pillai-blue.svg?style=flat)](https://twitter.com/as_pillai)
+
 
 ## License
 
