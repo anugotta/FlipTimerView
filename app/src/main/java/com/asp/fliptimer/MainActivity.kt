@@ -2,7 +2,7 @@ package com.asp.fliptimer
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
+import androidx.core.content.res.ResourcesCompat
 import android.widget.Toast
 import com.asp.fliptimerviewlibrary.CountDownClock
 import kotlinx.android.synthetic.main.activity_main.*
