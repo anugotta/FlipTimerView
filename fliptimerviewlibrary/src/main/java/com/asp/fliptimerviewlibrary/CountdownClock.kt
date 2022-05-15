@@ -140,6 +140,9 @@ class CountDownClock : LinearLayout {
 
 
         when {
+            monthString == "0" -> {
+                relMonth.visibility = View.GONE
+            }
             monthString.length == 2 -> {
                 firstDigitMonth.animateTextChange((monthString[0].toString()))
                 secondDigitMonth.animateTextChange((monthString[1].toString()))
@@ -148,12 +151,16 @@ class CountDownClock : LinearLayout {
                 firstDigitMonth.animateTextChange(("0"))
                 secondDigitMonth.animateTextChange((monthString[0].toString()))
             }
+
             else -> {
                 firstDigitMonth.animateTextChange(("9"))
                 secondDigitMonth.animateTextChange(("9"))
             }
         }
         when {
+            daysString == "0" -> {
+                relDays.visibility = View.GONE
+            }
             daysString.length == 2 -> {
                 firstDigitDays.animateTextChange((daysString[0].toString()))
                 secondDigitDays.animateTextChange((daysString[1].toString()))
