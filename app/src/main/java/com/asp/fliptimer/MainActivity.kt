@@ -2,8 +2,8 @@ package com.asp.fliptimer
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v4.content.res.ResourcesCompat
 import android.widget.Toast
+import androidx.core.content.res.ResourcesCompat
 import com.asp.fliptimerviewlibrary.CountDownClock
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -18,7 +18,7 @@ class MainActivity : Activity() {
 
         val typeface = ResourcesCompat.getFont(this, R.font.roboto_bold)
         timerProgramCountdown.setCustomTypeface(typeface!!)
-        timerProgramCountdown.startCountDown(99999999)
+        timerProgramCountdown.startCountDown(999999999)
         timerProgramCountdown.setCountdownListener(object : CountDownClock.CountdownCallBack {
             override fun countdownAboutToFinish() {
                 //TODO Add your code here
@@ -35,11 +35,11 @@ class MainActivity : Activity() {
 
         btnPause.setOnClickListener {
 
-            if(isRunning){
+            if (isRunning) {
                 isRunning = false
                 timerProgramCountdown.pauseCountDownTimer()
                 btnPause.text = getString(R.string.resume_timer)
-            }else{
+            } else {
                 isRunning = true
                 timerProgramCountdown.resumeCountDownTimer()
                 btnPause.text = getString(R.string.pause_timer)

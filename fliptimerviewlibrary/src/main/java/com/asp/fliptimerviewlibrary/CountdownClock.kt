@@ -4,11 +4,11 @@ import android.content.Context
 import android.graphics.Typeface
 import android.graphics.drawable.Drawable
 import android.os.CountDownTimer
-import android.support.v4.content.ContextCompat
 import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.View
 import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.view_countdown_clock_digit.view.*
 import kotlinx.android.synthetic.main.view_simple_clock.view.*
 import java.util.concurrent.TimeUnit
@@ -104,6 +104,8 @@ class CountDownClock : LinearLayout {
 
     fun resetCountdownTimer() {
         countDownTimer?.cancel()
+        firstDigitMonth.setNewText(resetSymbol)
+        secondDigitMonth.setNewText(resetSymbol)
         firstDigitDays.setNewText(resetSymbol)
         secondDigitDays.setNewText(resetSymbol)
         firstDigitHours.setNewText(resetSymbol)
@@ -121,17 +123,44 @@ class CountDownClock : LinearLayout {
     private fun setCountDownTime(timeToStart: Long) {
 
         val days = TimeUnit.MILLISECONDS.toDays(timeToStart)
+        val month = days / 30
         val hours = TimeUnit.MILLISECONDS.toHours(timeToStart - TimeUnit.DAYS.toMillis(days))
         val minutes = TimeUnit.MILLISECONDS.toMinutes(timeToStart - (TimeUnit.DAYS.toMillis(days) + TimeUnit.HOURS.toMillis(hours)))
         val seconds = TimeUnit.MILLISECONDS.toSeconds(timeToStart - (TimeUnit.DAYS.toMillis(days) + TimeUnit.HOURS.toMillis(hours) + TimeUnit.MINUTES.toMillis(minutes)))
 
-        val daysString = days.toString()
+        val monthString = month.toString()
+        val daysString = if (days > 30) {
+            (month % 30).toString()
+        } else {
+            days.toString()
+        }
         val hoursString = hours.toString()
         val minutesString = minutes.toString()
         val secondsString = seconds.toString()
 
 
         when {
+            monthString == "0" -> {
+                relMonth.visibility = View.GONE
+            }
+            monthString.length == 2 -> {
+                firstDigitMonth.animateTextChange((monthString[0].toString()))
+                secondDigitMonth.animateTextChange((monthString[1].toString()))
+            }
+            monthString.length == 1 -> {
+                firstDigitMonth.animateTextChange(("0"))
+                secondDigitMonth.animateTextChange((monthString[0].toString()))
+            }
+
+            else -> {
+                firstDigitMonth.animateTextChange(("9"))
+                secondDigitMonth.animateTextChange(("9"))
+            }
+        }
+        when {
+            daysString == "0" -> {
+                relDays.visibility = View.GONE
+            }
             daysString.length == 2 -> {
                 firstDigitDays.animateTextChange((daysString[0].toString()))
                 secondDigitDays.animateTextChange((daysString[1].toString()))
@@ -205,6 +234,8 @@ class CountDownClock : LinearLayout {
 
     private fun setDigitTopDrawable(digitTopDrawable: Drawable?) {
         if (digitTopDrawable != null) {
+            firstDigitMonth.frontUpper.background = digitTopDrawable
+            secondDigitMonth.frontUpper.background = digitTopDrawable
             firstDigitDays.frontUpper.background = digitTopDrawable
             firstDigitDays.backUpper.background = digitTopDrawable
             secondDigitDays.frontUpper.background = digitTopDrawable
@@ -228,6 +259,8 @@ class CountDownClock : LinearLayout {
 
     private fun setDigitBottomDrawable(digitBottomDrawable: Drawable?) {
         if (digitBottomDrawable != null) {
+            firstDigitMonth.frontLower.background = digitBottomDrawable
+            secondDigitMonth.frontLower.background = digitBottomDrawable
             firstDigitDays.frontLower.background = digitBottomDrawable
             firstDigitDays.backLower.background = digitBottomDrawable
             secondDigitDays.frontLower.background = digitBottomDrawable
@@ -255,6 +288,8 @@ class CountDownClock : LinearLayout {
             dividerColor = ContextCompat.getColor(context, R.color.transparent)
         }
 
+        firstDigitMonth.digitDivider.setBackgroundColor(dividerColor)
+        secondDigitMonth.digitDivider.setBackgroundColor(dividerColor)
         firstDigitDays.digitDivider.setBackgroundColor(dividerColor)
         secondDigitDays.digitDivider.setBackgroundColor(dividerColor)
         firstDigitHours.digitDivider.setBackgroundColor(dividerColor)
@@ -279,13 +314,15 @@ class CountDownClock : LinearLayout {
 
     private fun setDigitPadding(digitPadding: Int) {
 
+        firstDigitMonth.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
+        secondDigitMonth.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         firstDigitDays.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        secondDigitDays.setPadding(digitPadding, digitPadding, digitPadding , digitPadding)
+        secondDigitDays.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         firstDigitHours.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        secondDigitHours.setPadding(digitPadding, digitPadding, digitPadding , digitPadding)
+        secondDigitHours.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
 
         firstDigitMinute.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
-        secondDigitMinute.setPadding(digitPadding, digitPadding, digitPadding , digitPadding)
+        secondDigitMinute.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         firstDigitSecond.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
         secondDigitSecond.setPadding(digitPadding, digitPadding, digitPadding, digitPadding)
     }
@@ -300,6 +337,8 @@ class CountDownClock : LinearLayout {
             textColor = ContextCompat.getColor(context, R.color.transparent)
         }
 
+        firstDigitMonth.frontUpperText.setTextColor(textColor)
+        secondDigitMonth.frontUpperText.setTextColor(textColor)
         firstDigitDays.frontUpperText.setTextColor(textColor)
         firstDigitDays.backUpperText.setTextColor(textColor)
         firstDigitHours.frontUpperText.setTextColor(textColor)
@@ -318,6 +357,12 @@ class CountDownClock : LinearLayout {
         secondDigitSecond.frontUpperText.setTextColor(textColor)
         secondDigitSecond.backUpperText.setTextColor(textColor)
 
+
+        firstDigitMonth.frontLowerText.setTextColor(textColor)
+        firstDigitMonth.backLowerText.setTextColor(textColor)
+
+        secondDigitMonth.frontLowerText.setTextColor(textColor)
+        secondDigitMonth.backLowerText.setTextColor(textColor)
 
         firstDigitDays.frontLowerText.setTextColor(textColor)
         firstDigitDays.backLowerText.setTextColor(textColor)
@@ -343,6 +388,10 @@ class CountDownClock : LinearLayout {
 
     private fun setDigitTextSize(digitsTextSize: Float) {
 
+        firstDigitMonth.frontUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        firstDigitMonth.backUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        secondDigitMonth.frontUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        secondDigitMonth.backUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         firstDigitDays.frontUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         firstDigitDays.backUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         secondDigitDays.frontUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
@@ -359,6 +408,10 @@ class CountDownClock : LinearLayout {
         firstDigitSecond.backUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         secondDigitSecond.frontUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         secondDigitSecond.backUpperText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        firstDigitMonth.frontLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        firstDigitMonth.backLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        secondDigitMonth.frontLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
+        secondDigitMonth.backLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         firstDigitDays.frontLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         firstDigitDays.backLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
         secondDigitDays.frontLowerText.setTextSize(TypedValue.COMPLEX_UNIT_PX, digitsTextSize)
@@ -378,6 +431,10 @@ class CountDownClock : LinearLayout {
     }
 
     private fun setHalfDigitHeightAndDigitWidth(halfDigitHeight: Int, digitWidth: Int) {
+        setHeightAndWidthToView(firstDigitMonth.frontUpper, halfDigitHeight, digitWidth)
+        setHeightAndWidthToView(firstDigitMonth.backUpper, halfDigitHeight, digitWidth)
+        setHeightAndWidthToView(secondDigitMonth.frontUpper, halfDigitHeight, digitWidth)
+        setHeightAndWidthToView(secondDigitMonth.backUpper, halfDigitHeight, digitWidth)
         setHeightAndWidthToView(firstDigitDays.frontUpper, halfDigitHeight, digitWidth)
         setHeightAndWidthToView(firstDigitDays.backUpper, halfDigitHeight, digitWidth)
         setHeightAndWidthToView(secondDigitDays.frontUpper, halfDigitHeight, digitWidth)
@@ -396,6 +453,10 @@ class CountDownClock : LinearLayout {
         setHeightAndWidthToView(secondDigitSecond.backUpper, halfDigitHeight, digitWidth)
 
         // Lower
+        setHeightAndWidthToView(firstDigitMonth.frontLower, halfDigitHeight, digitWidth)
+        setHeightAndWidthToView(firstDigitMonth.backLower, halfDigitHeight, digitWidth)
+        setHeightAndWidthToView(secondDigitMonth.frontLower, halfDigitHeight, digitWidth)
+        setHeightAndWidthToView(secondDigitMonth.backLower, halfDigitHeight, digitWidth)
         setHeightAndWidthToView(firstDigitDays.frontLower, halfDigitHeight, digitWidth)
         setHeightAndWidthToView(firstDigitDays.backLower, halfDigitHeight, digitWidth)
         setHeightAndWidthToView(secondDigitDays.frontLower, halfDigitHeight, digitWidth)
@@ -414,6 +475,8 @@ class CountDownClock : LinearLayout {
         setHeightAndWidthToView(secondDigitSecond.backLower, halfDigitHeight, digitWidth)
 
         // Dividers
+        firstDigitMonth.digitDivider.layoutParams.width = digitWidth
+        secondDigitMonth.digitDivider.layoutParams.width = digitWidth
         firstDigitDays.digitDivider.layoutParams.width = digitWidth
         secondDigitDays.digitDivider.layoutParams.width = digitWidth
         firstDigitHours.digitDivider.layoutParams.width = digitWidth
@@ -429,9 +492,12 @@ class CountDownClock : LinearLayout {
         firstDigitMinuteFrontUpperLayoutParams.height = halfDigitHeight
         firstDigitMinuteFrontUpperLayoutParams.width = digitWidth
         firstDigitDays.frontUpper.layoutParams = firstDigitMinuteFrontUpperLayoutParams
+
     }
 
     private fun setAnimationDuration(animationDuration: Int) {
+        firstDigitMonth.setAnimationDuration(animationDuration.toLong())
+        secondDigitMonth.setAnimationDuration(animationDuration.toLong())
         firstDigitDays.setAnimationDuration(animationDuration.toLong())
         secondDigitDays.setAnimationDuration(animationDuration.toLong())
         firstDigitHours.setAnimationDuration(animationDuration.toLong())
@@ -448,6 +514,10 @@ class CountDownClock : LinearLayout {
 
     private fun setTransparentBackgroundColor() {
         val transparent = ContextCompat.getColor(context, R.color.transparent)
+        firstDigitMonth.frontLower.setBackgroundColor(transparent)
+        firstDigitMonth.backLower.setBackgroundColor(transparent)
+        secondDigitMonth.frontLower.setBackgroundColor(transparent)
+        secondDigitMonth.backLower.setBackgroundColor(transparent)
         firstDigitDays.frontLower.setBackgroundColor(transparent)
         firstDigitDays.backLower.setBackgroundColor(transparent)
         secondDigitDays.frontLower.setBackgroundColor(transparent)
@@ -470,7 +540,7 @@ class CountDownClock : LinearLayout {
     // Listeners
     ////////////////
 
-     fun setCountdownListener(countdownListener: CountdownCallBack) {
+    fun setCountdownListener(countdownListener: CountdownCallBack) {
         this.countdownListener = countdownListener
     }
 
@@ -484,12 +554,16 @@ class CountDownClock : LinearLayout {
         countDownTimer?.cancel()
     }
 
-     fun resumeCountDownTimer() {
+    fun resumeCountDownTimer() {
         startCountDown(milliLeft)
     }
 
 
-    fun setCustomTypeface(typeface : Typeface){
+    fun setCustomTypeface(typeface: Typeface) {
+        firstDigitMonth.setTypeFace(typeface)
+        firstDigitMonth.setTypeFace(typeface)
+        secondDigitMonth.setTypeFace(typeface)
+        secondDigitMonth.setTypeFace(typeface)
         firstDigitDays.setTypeFace(typeface)
         firstDigitDays.setTypeFace(typeface)
         secondDigitDays.setTypeFace(typeface)
